@@ -122,7 +122,7 @@ function watch() {
 		},
 		port: 2712,
 		// host: "192.168.27.12",
-		browser: 'Firefox',
+		browser: 'C:\\Program Files\\Firefox Developer Edition\\firefox.exe',
 	});
 	gulp.watch(paths.scripts.src, scripts);
 	gulp.watch(paths.styles.lessSrc + '**/*.less', styles);
