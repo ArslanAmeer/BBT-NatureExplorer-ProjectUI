@@ -95,51 +95,87 @@ $(document).ready(() => {
 
         // // Go to the next item
         $('#left-btn').click(function () {
-                owlone.trigger('prev.owl.carousel');
-            }
-
-        );
+            owlone.trigger('prev.owl.carousel');
+        });
 
         // // Go to the previous item
         $('#right-btn').click(function () {
-                owlone.trigger('next.owl.carousel');
-            }
-
-        );
+            owlone.trigger('next.owl.carousel');
+        });
 
         // Text ReadMore (Extra Content Hidden)
 
+        // $("#icon-image").snowfall({
+        //     flakeCount: 100,
+        //     maxSpeed: 10,
+        //     flakeColor: '#58b8d6',
+        //     round: true,
+        //     maxSize: 6
+        // });
+
+
+
         $(function () {
+
                 // Readmore Text Function ReadMore()
+
             }
+
+
 
         );
 
+
+
         // Gallery Images
+
         // img-wrap class is used to copy image src to anchore tag
+
         // href value to activate lightbox
+
         // $('.img-wrap').each(function() {
+
         // $(this).attr(
+
         // 'href',
+
         // $(this)
+
         // .find('img')
+
         // .attr('src')
+
         // );
+
         // });
 
+
+
         // LOad More Content
+
         // Load more Trainers Section Content
 
+
+
         // $('.blog').hide();
+
         // $('.blog')
+
         // .slice(0, 7)
+
         // .show();
+
         // $('.loadMore').on('click', function(e) {
+
         // e.preventDefault();
+
         // $('.blog:hidden')
+
         // .slice(0, 3)
+
         // .slideDown();
-        // if ($('.blog:hidden').length == 0) {
+
+        // if ($('.blog:hidden').length = = 0) {
         // $('.loadMore').text('No More Content');
         // }
         // });
