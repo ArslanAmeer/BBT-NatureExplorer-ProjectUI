@@ -4277,9 +4277,10 @@ $(document).ready(() => {
         // Text ReadMore (Extra Content Hidden)
 
         // $("#icon-image").snowfall({
-        //     flakeCount: 100,
+        //     flakeCount: 150,
         //     maxSpeed: 10,
-        //     flakeColor: '#58b8d6',
+        //     // flakeColor: '#58b8d6',
+        //     flakeColor: '#7d7676',
         //     round: true,
         //     maxSize: 6
         // });
