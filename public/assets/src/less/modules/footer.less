@@ -1,0 +1,76 @@
+footer#footer {
+    background: #151515;
+    padding: 100px 0;
+
+    .footer-heading {
+        font-size: 24px;
+        color: white;
+        font-weight: 400;
+        font-family: "HeronSans-Regular";
+    }
+
+    .footer-desc {
+        font-size: 14px;
+        color: lightgray;
+        font-weight: lighter;
+        line-height: 19px;
+        letter-spacing: .5px;
+        font-family: "HeronSans-Regular";
+    }
+
+    .list-style {
+        margin-left: -28px;
+        line-height: 2.3;
+        list-style: none;
+
+        li::before {
+            content: "○";
+            /* Add content: \2022 is the CSS Code/unicode for a bullet */
+            color: #c7ff1a;
+            font-weight: bold;
+            /* If you want it to be bold */
+            display: inline-block;
+            /* Needed to add space between the bullet and the text */
+            width: 1em;
+            /* Also needed for space (tweak if needed) */
+            margin-left: -1em;
+        }
+    }
+
+    .link-text {
+        font-size: 16px;
+        color: white;
+        font-weight: 400;
+        font-family: "HeronSans-Regular";
+    }
+
+    .date-time {
+        font-size: 14px;
+        color: #484848;
+        font-weight: 400;
+        margin: 0;
+        font-family: "HeronSans-Regular";
+    }
+}
+
+.bottom-nav {
+    padding: 20px;
+    padding: 29px 0 10px 0;
+    background-color: @primary-color;
+
+    .footer-font {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        color: white;
+        font-weight: 400;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        font-family: "HeronSans-Regular";
+    }
+}
+
+.w-85 {
+    width: 85%;
+}
