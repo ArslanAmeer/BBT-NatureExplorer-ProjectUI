@@ -17,9 +17,7 @@ $(document).ready(() => {
                 sticky.removeClass('is-sticky');
                 stickyWrapper.height('auto');
             }
-        }
-
-        ;
+        };
 
         // Find all data-toggle="sticky-onscroll" elements
         $('[data-toggle="sticky-onscroll"]').each(function () {
@@ -103,16 +101,49 @@ $(document).ready(() => {
             owlone.trigger('next.owl.carousel');
         });
 
+        // Second Carousel For TOUR Slider
+        var owlTwo = $('.owlTwo');
+
+        owlTwo.owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: false,
+            dots: false,
+            items: 1,
+            stagePadding: 4,
+            autoplay: true,
+            slideBy: 2,
+            mouseDrag: false,
+            dotsContainer: '#carousel-custom-dots',
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                992: {
+                    items: 2,
+                    margin: 50,
+                    dots: true
+                }
+            }
+        });
+
+        $('.owl-dot').click(function () {
+            owlTwo.trigger('to.owl.carousel', [$(this).index(), 300]);
+        });
+
         // Text ReadMore (Extra Content Hidden)
 
-        // $("#icon-image").snowfall({
-        //     flakeCount: 150,
-        //     maxSpeed: 10,
-        //     // flakeColor: '#58b8d6',
-        //     flakeColor: '#7d7676',
-        //     round: true,
-        //     maxSize: 6
-        // });
+        //     $("#icon-image").snowfall( {
+        //            flakeCount: 150,
+        //            maxSpeed: 10,
+        //            // flakeColor: '#58b8d6',
+        //            flakeColor: '#7d7676',
+        //            round: true,
+        //            maxSize: 6
+        //        }
+
+        //    );
 
 
 

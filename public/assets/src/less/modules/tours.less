@@ -1,0 +1,190 @@
+section.tours {
+    .g-pd-y;
+
+    header {
+        text-align: center;
+
+        h1 {
+            font-family: "Sitka";
+            color: @primary-color;
+            font-size: 45px;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        p {
+            font-family: "HeronSans-Regular";
+            color: @dark-font-color;
+            letter-spacing: 1;
+            // line-height: 18px;
+            font-size: 20px;
+        }
+    }
+
+    .tours-wrap {
+
+        .owl-stage-outer {
+            .owl-stage {
+                padding: 15px 0;
+            }
+        }
+
+        .owlTwo {
+            .item {
+                .tour-wrap {
+                    border: 2px solid #585858;
+                    border-radius: 10px;
+                    position: relative;
+
+                    .img-wrap {
+                        border-radius: 10px;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .price-tag {
+                        font-family: Sitka;
+                        font-size: 26px;
+                        font-weight: bold;
+                        color: @primary-color;
+                        background-color: #fff;
+                        padding: 5px 15px;
+                        border-radius: 10px;
+                        position: absolute;
+                        top: 7%;
+                        left: 5%;
+                    }
+
+                    .tour-details {
+                        width: 90%;
+                        display: flex;
+                        justify-content: space-evenly;
+                        border: 1px solid white;
+                        border-radius: 10px;
+                        position: absolute;
+                        left: -2px;
+                        bottom: -5%;
+                        z-index: 9999999;
+                        .bg-gradient;
+                        .resetmp;
+                        padding: 8px 0;
+
+                        span {
+                            font-family: "HeronSans-Regular";
+                            text-transform: capitalize;
+                            color: @light-font-color;
+                            font-size: 13px;
+                            line-height: 12px;
+                            letter-spacing: .7px;
+                            .resetmp;
+                            position: relative;
+
+                            h5 {
+                                font-family: "HeronSans-Medium";
+                                text-align: center;
+                                font-size: 23px;
+                                .resetmp;
+                            }
+
+                            &::after {
+                                content: "";
+                                display: block;
+                                height: 50%;
+                                width: 2px;
+                                background-color: #fff;
+                                position: absolute;
+                                right: -50%;
+                                top: 20%;
+                            }
+
+                            &:last-child {
+                                &::after {
+                                    display: none;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .upcoming-tour {
+            margin-top: 10px;
+
+            h1 {
+                font-family: "Sitka";
+                color: @primary-color;
+                text-transform: capitalize;
+                font-weight: bold;
+            }
+
+            h3 {
+                font-family: "HeronSans-Regular";
+                color: @dark-font-color;
+                text-transform: capitalize;
+                display: inline-block;
+                position: relative;
+
+                &:after {
+                    content: " ";
+                    width: 45px;
+                    height: 7px;
+                    background-color: @primary-color;
+                    position: absolute;
+                    bottom: -10px;
+                    left: 0;
+                    border-radius: 25px;
+                }
+
+                @media (min-width: 992px) {
+                    &:after {
+                        // bottom: 0;
+                        // left: 0;
+                        top: 50%;
+                        left: 105%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            p {
+                font-family: "HeronSans-Light";
+                color: @dark-font-color;
+                font-size: 21px;
+                margin-top: 10px;
+            }
+
+            .owl-dots {
+                .resetmp;
+                list-style: none;
+                text-decoration: none;
+                display: flex;
+
+                .owl-dot {
+                    .resetmp;
+                    list-style: none;
+                    text-decoration: none;
+                    border: none;
+                    outline: none;
+                    width: 70px;
+                    height: 10px;
+                    background-color: @primary-color;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    margin-right: 10px;
+                    opacity: 0.4;
+                }
+
+                .owl-dot.active {
+                    background-color: @primary-color;
+                    opacity: 1;
+                }
+            }
+        }
+
+    }
+}
