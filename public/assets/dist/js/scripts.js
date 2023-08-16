@@ -4174,213 +4174,193 @@ Date.now||(Date.now=function(){return(new Date).getTime()}),function(){"use stri
 ------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------ */
 $(document).ready(() => {
+	// Custom function which toggles between sticky class (is-sticky)
+	var stickyToggle = function (sticky, stickyWrapper, scrollElement) {
+		var stickyHeight = sticky.outerHeight();
+		var stickyTop = stickyWrapper.offset().top;
 
-        // Custom function which toggles between sticky class (is-sticky)
-        var stickyToggle = function (sticky, stickyWrapper, scrollElement) {
-            var stickyHeight = sticky.outerHeight();
-            var stickyTop = stickyWrapper.offset().top;
+		if (scrollElement.scrollTop() >= stickyTop) {
+			stickyWrapper.height(stickyHeight);
+			sticky.addClass('is-sticky');
+		} else {
+			sticky.removeClass('is-sticky');
+			stickyWrapper.height('auto');
+		}
+	};
 
-            if (scrollElement.scrollTop() >= stickyTop) {
-                stickyWrapper.height(stickyHeight);
-                sticky.addClass('is-sticky');
-            } else {
-                sticky.removeClass('is-sticky');
-                stickyWrapper.height('auto');
-            }
-        };
+	// Find all data-toggle="sticky-onscroll" elements
+	$('[data-toggle="sticky-onscroll"]').each(function () {
+		var sticky = $(this);
+		var stickyWrapper = $('<div>').addClass('sticky-wrapper'); // insert hidden element to maintain actual top offset on page
+		sticky.before(stickyWrapper);
+		sticky.addClass('sticky');
 
-        // Find all data-toggle="sticky-onscroll" elements
-        $('[data-toggle="sticky-onscroll"]').each(function () {
-                var sticky = $(this);
-                var stickyWrapper = $('<div>').addClass('sticky-wrapper'); // insert hidden element to maintain actual top offset on page
-                sticky.before(stickyWrapper);
-                sticky.addClass('sticky');
+		// Scroll & resize events
+		$(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function () {
+			stickyToggle(sticky, stickyWrapper, $(this));
+		});
 
-                // Scroll & resize events
-                $(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function () {
-                        stickyToggle(sticky, stickyWrapper, $(this));
-                    }
+		// On page load
+		stickyToggle(sticky, stickyWrapper, $(window));
+	});
 
-                );
+	// Applying Active Class On Nav Link when CLicked
+	//
+	// $('.navbar .nav-link').on('click', function() {
+	// $('.navbar')
+	// .find('.active')
+	// .removeClass('active');
+	// $(this)
+	// .parent('.nav-item')
+	// .addClass('active');
 
-                // On page load
-                stickyToggle(sticky, stickyWrapper, $(window));
-            }
+	// if (this.hash !== '') {
+	// event.preventDefault();
+	// var hash = this.hash;
+	// $('html, body').animate(
+	// {
+	// scrollTop: $(hash).offset().top - 70,
+	// },
+	// 1000
+	// );
+	// }
+	// });
 
-        );
+	// Making img tag src image to parent's background image
+	//
+	// $('.hero-wrap').each(function() {
+	// $(this).css(
+	// 'background-image',
+	// 'url(' +
+	// $(this)
+	// .find('img')
+	// .attr('src') +
+	// ')'
+	// );
+	// $(this)
+	// .find('img')
+	// .remove();
+	// });
 
-        // Applying Active Class On Nav Link when CLicked
-        //
-        // $('.navbar .nav-link').on('click', function() {
-        // $('.navbar')
-        // .find('.active')
-        // .removeClass('active');
-        // $(this)
-        // .parent('.nav-item')
-        // .addClass('active');
+	// Owl Carousel For Hero Slider
 
-        // if (this.hash !== '') {
-        // event.preventDefault();
-        // var hash = this.hash;
-        // $('html, body').animate(
-        // {
-        // scrollTop: $(hash).offset().top - 70,
-        // },
-        // 1000
-        // );
-        // }
-        // });
+	var owlone = $('.owlOne');
 
-        // Making img tag src image to parent's background image
-        //
-        // $('.hero-wrap').each(function() {
-        // $(this).css(
-        // 'background-image',
-        // 'url(' +
-        // $(this)
-        // .find('img')
-        // .attr('src') +
-        // ')'
-        // );
-        // $(this)
-        // .find('img')
-        // .remove();
-        // });
+	owlone.owlCarousel({
+		loop: true,
+		margin: 0,
+		nav: false,
+		dots: false,
+		items: 1,
+	});
 
-        // Owl Carousel For Hero Slider
+	// // Go to the next item
+	$('#left-btn').click(function () {
+		owlone.trigger('prev.owl.carousel');
+	});
 
-        var owlone = $('.owlOne');
+	// // Go to the previous item
+	$('#right-btn').click(function () {
+		owlone.trigger('next.owl.carousel');
+	});
 
-        owlone.owlCarousel({
-                loop: true,
-                margin: 0,
-                nav: false,
-                dots: false,
-                items: 1,
-            }
+	// Second Carousel For TOUR Slider
+	var owlTwo = $('.owlTwo');
 
-        );
+	owlTwo.owlCarousel({
+		loop: true,
+		margin: 30,
+		nav: false,
+		dots: false,
+		items: 1,
+		stagePadding: 4,
+		autoplay: true,
+		slideBy: 2,
+		mouseDrag: false,
+		dotsContainer: '#carousel-custom-dots',
+		responsiveClass: true,
+		responsive: {
+			0: {
+				items: 1,
+			},
+			992: {
+				items: 2,
+				margin: 50,
+				dots: true,
+			},
+		},
+	});
 
-        // // Go to the next item
-        $('#left-btn').click(function () {
-            owlone.trigger('prev.owl.carousel');
-        });
+	$('.owl-dot').click(function () {
+		owlTwo.trigger('to.owl.carousel', [$(this).index(), 300]);
+	});
 
-        // // Go to the previous item
-        $('#right-btn').click(function () {
-            owlone.trigger('next.owl.carousel');
-        });
+	// Text ReadMore (Extra Content Hidden)
 
-        // Second Carousel For TOUR Slider
-        var owlTwo = $('.owlTwo');
+	$('#icon-image').snowfall({
+		flakeCount: 150,
+		maxSpeed: 10,
+		// flakeColor: '#58b8d6',
+		flakeColor: '#7d7676',
+		round: true,
+		maxSize: 6,
+	});
 
-        owlTwo.owlCarousel({
-            loop: true,
-            margin: 30,
-            nav: false,
-            dots: false,
-            items: 1,
-            stagePadding: 4,
-            autoplay: true,
-            slideBy: 2,
-            mouseDrag: false,
-            dotsContainer: '#carousel-custom-dots',
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                992: {
-                    items: 2,
-                    margin: 50,
-                    dots: true
-                }
-            }
-        });
+	$(function () {
+		// Readmore Text Function ReadMore()
+	});
 
-        $('.owl-dot').click(function () {
-            owlTwo.trigger('to.owl.carousel', [$(this).index(), 300]);
-        });
+	// Gallery Images
 
-        // Text ReadMore (Extra Content Hidden)
+	// img-wrap class is used to copy image src to anchore tag
 
-        //     $("#icon-image").snowfall( {
-        //            flakeCount: 150,
-        //            maxSpeed: 10,
-        //            // flakeColor: '#58b8d6',
-        //            flakeColor: '#7d7676',
-        //            round: true,
-        //            maxSize: 6
-        //        }
+	// href value to activate lightbox
 
-        //    );
+	// $('.img-wrap').each(function() {
 
+	// $(this).attr(
 
+	// 'href',
 
-        $(function () {
+	// $(this)
 
-                // Readmore Text Function ReadMore()
+	// .find('img')
 
-            }
+	// .attr('src')
 
+	// );
 
+	// });
 
-        );
+	// LOad More Content
 
+	// Load more Trainers Section Content
 
+	// $('.blog').hide();
 
-        // Gallery Images
+	// $('.blog')
 
-        // img-wrap class is used to copy image src to anchore tag
+	// .slice(0, 7)
 
-        // href value to activate lightbox
+	// .show();
 
-        // $('.img-wrap').each(function() {
+	// $('.loadMore').on('click', function(e) {
 
-        // $(this).attr(
+	// e.preventDefault();
 
-        // 'href',
+	// $('.blog:hidden')
 
-        // $(this)
+	// .slice(0, 3)
 
-        // .find('img')
+	// .slideDown();
 
-        // .attr('src')
+	// if ($('.blog:hidden').length = = 0) {
+	// $('.loadMore').text('No More Content');
+	// }
+	// });
 
-        // );
+	const copyrightText = document.querySelector('.footer-font');
+	const currentYear = new Date().getFullYear();
 
-        // });
-
-
-
-        // LOad More Content
-
-        // Load more Trainers Section Content
-
-
-
-        // $('.blog').hide();
-
-        // $('.blog')
-
-        // .slice(0, 7)
-
-        // .show();
-
-        // $('.loadMore').on('click', function(e) {
-
-        // e.preventDefault();
-
-        // $('.blog:hidden')
-
-        // .slice(0, 3)
-
-        // .slideDown();
-
-        // if ($('.blog:hidden').length = = 0) {
-        // $('.loadMore').text('No More Content');
-        // }
-        // });
-    }
-
-);
+	copyrightText.innerHTML = `ALL COPYRIGHTS RESERVED 2019-${currentYear}`;
+});
