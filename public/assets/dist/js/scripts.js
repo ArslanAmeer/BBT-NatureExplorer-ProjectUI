@@ -1,9 +1,8 @@
 /**
- *  - @ Copyrights 2019 | All Rights Reserved By Busy Bee Technologies
- * @version: v
- * @link: http://bzbeetech.com/>
+ * Nature Explorer | A Travel Guide and Booking Website - @ Copyrights 2019 | All Rights Reserved
+ * @version: v1.0
  * @license: ISC
- * @Developed & Code by: Arslan Ameer | http://www.arslanameer.com/
+ * @Developed & Code by: Arslan Ameer | https://www.arslanameer.com/
  */
 
 // Uses Node, AMD or browser globals to create a module.

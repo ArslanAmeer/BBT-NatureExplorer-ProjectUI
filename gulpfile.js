@@ -38,11 +38,10 @@ var paths = {
 var pkg = require('./package.json');
 var banner = [
 	'/**',
-	' * <%= pkg.name %> - @ Copyrights 2019 | All Rights Reserved By Busy Bee Technologies',
+	' * <%= pkg.name %> - @ Copyrights 2019 | All Rights Reserved',
 	' * @version: v<%= pkg.version %>',
-	' * @link: http://bzbeetech.com/>',
 	' * @license: <%= pkg.license %>',
-	' * @Developed & Code by: <%= pkg.author %> | http://www.arslanameer.com/',
+	' * @Developed & Code by: <%= pkg.author %> | https://www.arslanameer.com/',
 	' */',
 	'',
 	'',
